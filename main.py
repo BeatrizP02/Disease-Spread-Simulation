@@ -34,7 +34,7 @@ CONFIG = {
     'sim_width': 800,
     'sim_height': 600,
     'panel_width': 250,
-    'fps': 60,
+    'fps': 30,
     'record_interval': 5,  # record SIR every N frames
 }
 
@@ -135,10 +135,6 @@ def main():
 
         renderer.draw_frame(sim, paused)
         clock.tick(CONFIG['fps'])
-
-    # Save final SIR curves on exit
-    if sim.sir_history['t']:
-        plot_sir_curves(sim.sir_history, title="SIR Curves — Final", filename="sir_curves_final.png")
 
     pygame.quit()
     sys.exit(0)

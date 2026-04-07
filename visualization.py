@@ -27,10 +27,10 @@ class Renderer:
             pos = (int(agent.pos[0]), int(agent.pos[1]))
             pygame.draw.circle(self.screen, color, pos, int(agent.radius))
             # Draw transmission radius faintly for infected agents
-            if agent.state == 'I' and not agent.quarantined:
-                s = pygame.Surface((self.sim_width, self.sim_height), pygame.SRCALPHA)
-                pygame.draw.circle(s, (*color, 30), pos, 15)
-                self.screen.blit(s, (0, 0))
+            #if agent.state == 'I' and not agent.quarantined:
+            #    s = pygame.Surface((self.sim_width, self.sim_height), pygame.SRCALPHA)
+            #    pygame.draw.circle(s, (*color, 30), pos, 15)
+            #    self.screen.blit(s, (0, 0))
 
     def draw_panel(self, sim, paused):
         #Draw the info panel on the right side.
@@ -49,7 +49,7 @@ class Renderer:
 
         # SIR counts
         info_lines = [
-            f"Time: {sim.time:.0f}",
+            f"Time: {sim.time:.0f} steps", # time step = dt x steps
             f"",
             f"Susceptible: {s}",
             f"Infected:    {i}",
@@ -57,11 +57,11 @@ class Renderer:
             f"Total:       {n}",
             f"",
             f"Method: {sim.params['integration_method'].upper()}",
-            f"Trans. Radius: {sim.params['transmission_radius']:.0f}",
-            f"Trans. Prob:   {sim.params['transmission_prob']:.2f}",
+            f"Transmission Radius: {sim.params['transmission_radius']:.0f}",
+            f"Transmission Prob:   {sim.params['transmission_prob']:.2f}",
             f"Recovery Time: {sim.params['recovery_time']:.0f}",
             f"",
-            f"Social Dist: {'ON' if sim.params['social_distancing'] else 'OFF'}",
+            f"Social Distancing: {'ON' if sim.params['social_distancing'] else 'OFF'}",
             f"Quarantine:  {'ON' if sim.params['quarantine'] else 'OFF'}",
         ]
 
