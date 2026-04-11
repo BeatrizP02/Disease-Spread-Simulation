@@ -5,6 +5,9 @@
 ## Overview
 An agent-based simulation of disease spread using collision detection in a 2D environment. Instead of traditional SIR models that assume uniform mixing, this simulation models transmission based on spatial proximity between individual agents.
 
+## Demo Video
+[Demo](https://youtu.be/XRRXNFTYjGc)
+
 ## Features
 - **SIR Model**: Agents transition between Susceptible, Infected, and Recovered states
 - **Collision-Based Transmission**: Disease spreads only when agents are within a configurable radius
